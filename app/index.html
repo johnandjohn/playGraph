@@ -10,6 +10,21 @@
     </head>
     <body ng-app="playGraph" ng-controller="pointCtrl">
 
+        <svg id="world" width="500" height="500">
+            <circle data-ng-repeat="point in points" cx="{{point.x}}" cy="{{point.y}}" r="10" stroke="gray" stroke-width="2" fill="white"></circle>
+        </svg>
+
+        <script>
+        /*
+            $(document).onload(function() {
+                var svg = $('#world').svg('get'); 
+                $('circle', svg.root()).click(function () {
+                    attr('cx', '300');
+                });
+            });
+          */  
+        </script
+
         <p>Nothing here {{text}}</p>
     </body>
 </html>
