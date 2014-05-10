@@ -7,3 +7,7 @@ var Point = function(x,y){
     this.y = y;
 };
 
+var Song = function(point){
+    this.point = point;
+};
+
