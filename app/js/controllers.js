@@ -3,7 +3,6 @@
 /* Controllers */
 var p = new Point(1,2);
 
-<<<<<<< HEAD
 app.controller('pointCtrl', ['$scope', '$http', function($scope, $http){
 	var constList = [
 		{x: 10, y:20},
