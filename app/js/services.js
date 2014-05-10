@@ -32,6 +32,7 @@ app.service('pathService', function() {
             var selection = [];
             var tuning = .5;
             songListCopy.sort(function(song){
+                console.log(song.minDist, (tuning + tuning*Math.random())*song.minDist)
                 return (tuning + tuning*Math.random())*song.minDist;}
             );
             while(duration > 0 && songListCopy.length > 0){
