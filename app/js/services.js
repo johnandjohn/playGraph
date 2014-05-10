@@ -34,16 +34,17 @@ app.service('pathService', function() {
                 //randomly select one song
                 var index = Math.floor(Math.random()*songListCopy.length);
                 var song = songListCopy[index];
-                var tuneParameter = 2;
+                var tuneParameter = 1.00;
                 var ratio = song.minDist/(maxDistOverall*tuneParameter);
                 console.log(ratio);
                 //favor the ones closer to the path
-                var weight = 1 - ratio*ratio;
-                if(Math.random() < weight){
+                var weight = ratio * ratio * ratio;
+                console.log("weight: ", weight);
+                if(Math.random() > weight){
                     songListCopy.splice(index, 1);
                     selection.push(song);
+                    duration -= 10;
                 }
-                duration -= 10;
             }
             selection.sort(function(item){ return item.closestIndex;});
             console.log(selection);
