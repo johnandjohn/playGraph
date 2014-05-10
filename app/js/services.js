@@ -30,24 +30,16 @@ app.service('pathService', function() {
             });
             //select the songs
             var selection = [];
+            var tuning = .5;
+            songListCopy.sort(function(song){
+                return (tuning + tuning*Math.random())*song.minDist;}
+            );
             while(duration > 0 && songListCopy.length > 0){
-                //randomly select one song
-                var index = Math.floor(Math.random()*songListCopy.length);
-                var song = songListCopy[index];
-                var tuneParameter = 1.00;
-                var ratio = song.minDist/(maxDistOverall*tuneParameter);
-                console.log(ratio);
-                //favor the ones closer to the path
-                var weight = ratio * ratio * ratio;
-                console.log("weight: ", weight);
-                if(Math.random() > weight){
-                    songListCopy.splice(index, 1);
-                    selection.push(song);
-                    duration -= 10;
-                }
+                var removed = songListCopy.splice(0, 1);
+                selection.push(removed[0]);
+                duration -= 10;
             }
             selection.sort(function(item){ return item.closestIndex;});
-            console.log(selection);
             return selection;
         }
     };
