@@ -11,8 +11,9 @@ app.service('pathService', function() {
         },
         computePlaylist: function(songList, constrainList, duration) {
             //compute distances from the constrain path
+            var songListCopy = songList.slice(0);
             var maxDistOverall = Number.MIN_VALUE;
-            angular.forEach(songList, function(song){
+            angular.forEach(songListCopy, function(song){
                 song.minDist = Number.MAX_VALUE;
                 for(var i=0; i<constrainList.length;i++){
                     var point = constrainList[i];
@@ -29,17 +30,17 @@ app.service('pathService', function() {
             });
             //select the songs
             var selection = [];
-            while(duration > 0 && songList.length > 0){
+            while(duration > 0 && songListCopy.length > 0){
                 //randomly select one song
-                var index = Math.floor(Math.random()*songList.length);
-                var song = songList[index];
+                var index = Math.floor(Math.random()*songListCopy.length);
+                var song = songListCopy[index];
                 var tuneParameter = 2;
                 var ratio = song.minDist/(maxDistOverall*tuneParameter);
                 console.log(ratio);
                 //favor the ones closer to the path
                 var weight = 1 - ratio*ratio;
                 if(Math.random() < weight){
-                    songList.splice(index, 1);
+                    songListCopy.splice(index, 1);
                     selection.push(song);
                 }
                 duration -= 10;
