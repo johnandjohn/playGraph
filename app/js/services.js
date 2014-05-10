@@ -42,7 +42,7 @@ app.service('pathService', function() {
                     songList.splice(index, 1);
                     selection.push(song);
                 }
-                duration += 20;
+                duration -= 10;
             }
             selection.sort(function(item){ return item.closestIndex;});
             console.log(selection);
