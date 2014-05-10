@@ -83,4 +83,7 @@ var dummyPoints= [
 
 	]
 
+var Song = function(point){
+    this.point = point;
+};
 
