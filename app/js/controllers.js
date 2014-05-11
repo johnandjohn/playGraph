@@ -28,6 +28,11 @@ app.controller('pointCtrl', function($scope, $http, pathService){
 
 //	$scope.line=constList;
 	
+	$scope.addNewSongToGraph(id, titre, link, duration)
+	{
+		
+	}
+	
 
 	$scope.getColor = function(point) {
 		if (playlist.indexOf(point) == -1) {
