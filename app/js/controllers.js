@@ -31,7 +31,6 @@ app.controller('pointCtrl', function($scope, $http, pathService){
 	
 	$scope.addNewSongToGraph = function(id, titre, link, duration)
 	{
-		alert("ninja "+id);	
 		var newSong = {
                     x:100,
                     y:100,
@@ -40,8 +39,9 @@ app.controller('pointCtrl', function($scope, $http, pathService){
                     link:link,
                     duration:duration
                 };
-         $scope.points.push(newSong);
-		 $scope.$apply();
+        $scope.points.push(newSong);
+        console.log(newSong);
+        $scope.$apply();
 	};
 	
 

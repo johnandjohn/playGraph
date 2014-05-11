@@ -11,147 +11,234 @@ var dummyPoints= [
 		{
 			x: 10,
 			y: 20,
-                        label:"chillout 01"
+                        duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 30,
 			y: 30,
-                        label:"chillout 02"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 50,
 			y: 25,
-                        label:"chillout 03"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 60,
 			y: 200,
-                        label:"linkin park"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 90,
 			y: 230,
-                        label:"foo"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 400,
 			y: 300,
-                        label:"tac tac"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 100,
 			y: 220,
-                        label:"track x"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 200,
 			y: 20,
-                        label:"track y"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 150,
 			y: 450,
-                        label:"track z"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 70,
 			y: 80,
-                        label:"track a"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 400,
 			y: 80,
-                        label:"track b"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 430,
 			y: 90,
-                        label:"track c"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 420,
 			y: 65,
-                        label:"track d"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 380,
 			y: 320,
-                        label:"track e"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 490,
 			y: 340,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 400,
 			y: 400,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 480,
 			y: 360,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 420,
 			y: 490,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 700,
 			y: 750,
-                        label:"just beat it"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 650,
 			y: 730,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 900,
 			y: 850,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 800,
 			y: 600,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 850,
 			y: 610,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 640,
 			y: 880,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 900,
 			y: 350,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 800,
 			y: 200,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 950,
 			y: 300,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 740,
 			y: 120,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		},
 		{
 			x: 900,
 			y: 320,
-                        label:"track 01"
+                                                duration: "406",
+id: "TAgJFGmgGJ0",
+label: "Feed Me - Trichitillomania",
+link: "http://www.youtube.com/watch?v=TAgJFGmgGJ0&feature=youtube_gdata"
 		}
 	]
 
