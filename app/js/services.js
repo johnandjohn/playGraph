@@ -9,52 +9,25 @@ app.service('pathService', function() {
             var dy = point1.y - point2.y;
             return Math.sqrt(dx * dx + dy * dy);
         },
-        computePlaylist: function(songList, constrainList, duration) {
+        computePlaylist: function(songList, line, duration) {
             //compute distances from the constrain path
+            console.log('length',line.length);
             
-            var songListCopy = songList.slice(0);
-            var maxDistOverall = Number.MIN_VALUE;
-            angular.forEach(songListCopy, function(song){
+            var threshold = 60;
+            angular.forEach(songList, function(song){
                 song.selected = false;
-                song.minDist = Number.MAX_VALUE;
-                for(var i=0; i<constrainList.length;i++){
-                    var point = constrainList[i];
-                    var d = self.dist(song, point);
-                    if(d < song.minDist){
-                        song.minDist = d;
-                        song.closest = point;
-                        song.closestIndex = i;
-                    }
-                }
-                if(song.minDist > maxDistOverall){
-                    maxDistOverall = song.minDist;
-                }
             });
-            //select the songs
-            var selection = [];
-            var tuning = .5;
-            angular.forEach(songListCopy, function(song){
-                song.rand = /*(tuning + tuning*Math.random())*/song.minDist;
-            });
-            songListCopy.sort(function(a,b){return a.rand-b.rand;});
-            //take from the sorted list util we reach the desired duration
-            while(duration > 0 && songListCopy.length > 0){
-                var removed = songListCopy.splice(0, 1);
-                selection.push(removed[0]);
-                duration -= 10;
-                removed[0].selected = true;
-            }
             
-            selection.sort(function(a,b){ return a.closestIndex-b.closestIndex;});
-
-            //clean points
-            angular.forEach(songList, function(song) {
-                delete song.minDist;
-                delete song.closest;
-                delete song.closestIndex;
-                delete song.rand;
+            var selection = [];
+            angular.forEach(line, function(point){
+                 angular.forEach(songList, function(song){
+                    var d = self.dist(song, point);
+                    if(d < threshold && song.selected !== true){
+                        selection.push(song);
+                        song.selected = true;
+                    }
+                });
             });
-
             return selection;
         }
     };
