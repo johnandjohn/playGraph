@@ -53,6 +53,18 @@ body
 .selected > .circle {
 	background-color: red;
 }
+.point > .songLabel p{
+    position: relative;
+    left:25px;
+    top:-30px;
+    color:#aaaaaa;
+    display: none;
+    font-size: 22px;
+}
+.point:hover > .songLabel p{
+    display: block;
+}
+
 #column-left
 {
 	width:300px;

@@ -2,19 +2,23 @@
 	"points": [
 		{
 			"x": 10,
-			"y": 20
+			"y": 20,
+                        "label":"offspring"
 		},
 		{
 			"x": 30,
-			"y": 30
+			"y": 30,
+                        "label":"gunther"
 		},
 		{
 			"x": 50,
-			"y": 25
+			"y": 25,
+                        "label":"gunther"
 		},
 		{
 			"x": 60,
-			"y": 200
+			"y": 200,
+                        "label":"offspring"
 		},
 		{
 			"x": 90,
