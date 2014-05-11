@@ -16,7 +16,7 @@ app.controller('pointCtrl', function($scope, $http, pathService){
 		}
 	}
 
-	$scope.$watch('points', function(newVal) {
+	$scope.$watch('points', function(newVal, oldVal) {
 		console.log("r")
 		update(newVal, $scope.line);
     }, true);

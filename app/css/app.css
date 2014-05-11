@@ -28,3 +28,7 @@
 	width: 30px;
 	height: 30px;
 }
+
+.selected > div {
+	background-color: red;
+}

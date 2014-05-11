@@ -17,11 +17,11 @@
         <div class="world" style="width: 100%; height: 500px;">
             <div data-pg-line="line" class="line" resize></div>
 
-            <div data-ng-repeat="point in points" data-pg-draggable="point" class="point" style="top: {{point.x}}px; left: {{point.y}}px;"><div></div></div>
+            <div data-ng-repeat="point in points" data-pg-draggable="point" class="point" style="top: {{point.x}}px; left: {{point.y}}px;" data-ng-class="{selected: point.selected==true}"><div></div></div>
         </div>
 
         <ul>
-            <li data-ng-repeat="point in points">{{point.x}}, {{point.y}}</li> 
+            <li data-ng-repeat="point in points | filter:{selected:true}">{{point.x}}, {{point.y}}</li> 
             
         </ul>
 
