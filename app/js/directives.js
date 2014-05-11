@@ -4,10 +4,11 @@ app.directive('pgLine', function () {
     return {
       restrict: 'A',
       replace: 'false',
-      template: '<canvas resize></canvas>',
+      template: '<canvas width=100%; height: 100%></canvas>',
       link: function (scope, elems, attrs) {
       	var canvas = elems[0];
       	var mainTool = new paper.Tool();
+      	
       	mainTool.activate();
 
       	scope.line = scope.$eval(attrs.pgLine);
@@ -17,6 +18,7 @@ app.directive('pgLine', function () {
       	var path;
       	var selected = null;
       	var drag = false;
+
 
       	mainTool.onMouseDown = function(event) {
       		var hit = paper.project.hitTest(event.point)
@@ -61,7 +63,7 @@ app.directive('pgLine', function () {
 			var points = Array();
 
 			// When the mouse is released, simplify it:
-			path.simplify(10);
+			path.smooth();
 	
 			for(var i=0; i<path._segments.length; i++)
 			{

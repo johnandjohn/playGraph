@@ -1,7 +1,14 @@
 /* app css stylesheet */
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
 .world {
 	position: relative;
+	background-color: lightyellow;
+	overflow: hidden;
 }
 
 .world .line {
