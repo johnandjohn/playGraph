@@ -16,45 +16,30 @@ app.directive('pgLine', function () {
       	paper.setup(canvas);
 
       	var path;
-      	var selected = null;
       	var drag = false;
 
 
       	mainTool.onMouseDown = function(event) {
-      		var hit = paper.project.hitTest(event.point)
-      		if (hit) {
-      			selected = hit.item;
-      		} else {
-      			paper.project.clear();
-				// If we produced a path before, deselect it:
-				if (path) {
-
-					path.selected = false;
-				}
-
-				// Create a new path and set its stroke color to black:
-				path = new paper.Path({
-					segments: [event.point],
-					strokeColor: 'rgba(7,140,255,.5)',
-					strokeWidth: 100,
-					fullySelected: true,
-                                        strokeCap: 'round'
-				});
-            	selected = null;
-      		};
-
+      		paper.project.clear();
+			// If we produced a path before, deselect it:
+			if (path) {
+				path.selected = false;
+			}
+			// Create a new path and set its stroke color to black:
+			path = new paper.Path({
+				segments: [event.point],
+				strokeColor: 'rgba(7,140,255,.5)',
+				strokeWidth: 100,
+				fullySelected: true,
+                strokeCap: 'round'
+			});
+      		
       		drag = true;
       	};
 
       	mainTool.onMouseMove = function(event) {
-      		console.log(event.point);
       		if (drag) {
-      			if (selected) {
-      				selected.position = event.point;
-      				scope.$apply();	
-      			} else {
-      				path.add(event.point);		
-      			}
+      			path.add(event.point);
       		}
       	}
 

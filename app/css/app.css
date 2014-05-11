@@ -7,7 +7,7 @@
 
 .world {
 	position: relative;
-	overflow: hidden;
+	border: solid #999999 1px;
 }
 
 .world .line {
