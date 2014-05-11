@@ -30,7 +30,7 @@ body
 	position: absolute;
 }
 
-.point > div {
+.point > .circle {
 	position: relative;
 	border-radius: 50%;
 	margin-left: -10px;
@@ -41,14 +41,16 @@ body
 	-webkit-transition: all .2s ease-in-out;
 }
 
-.point > div:hover {
+.point > .circle:hover {
 	margin-left: -15px;
 	margin-top: -15px;
+        width: 30px;
+	height: 30px;
 	-webkit-transform: scale(1.5);
 }
 
 
-.selected > div {
+.selected > .circle {
 	background-color: red;
 }
 #column-left

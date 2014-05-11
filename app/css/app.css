@@ -13,28 +13,3 @@
 .world .line {
 	position: absolute;
 }
-
-.point {
-	position: absolute;
-}
-
-.point > div {
-	position: relative;
-	border-radius: 50%;
-	margin-left: -10px;
-	margin-top: -10px;
-	width: 20px;
-	height: 20px;
-	border: solid #aaaaaa 2px;
-}
-
-.point > div:hover {
-	margin-left: -15px;
-	margin-top: -15px;
-	width: 30px;
-	height: 30px;
-}
-
-.selected > div {
-	background-color: red;
-}
