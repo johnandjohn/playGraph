@@ -1,63 +1,75 @@
 'use strict';
 
-app.directive('pgEpicness', function () {
+app.directive('pgLine', function () {
     return {
       restrict: 'A',
       replace: 'false',
       template: '<canvas resize></canvas>',
-      scope: {
-        points: '=',
-        line: '='
-      },
       link: function (scope, elems, attrs) {
       	var canvas = elems[0];
       	var mainTool = new paper.Tool();
       	mainTool.activate();
 
+      	scope.line = scope.$eval(attrs.pgLine);
+
       	paper.setup(canvas);
 
-      	var paperPoints = [];
-      	var paperLine = [];
-
-      	var drawPoints = function(points) {
-      		angular.forEach(points, function(point) {
-      			var path = new paper.Path.Circle(new Point(point.x, point.y), 5);
-            	path.strokeColor = 'gray';
-            	path.strokeWidth = 2;
-      		});
-      	};
-
+      	var path;
       	var selected = null;
       	var drag = false;
+
       	mainTool.onMouseDown = function(event) {
       		var hit = paper.project.hitTest(event.point)
       		if (hit) {
       			selected = hit.item;
       		} else {
-      			var path = new paper.Path.Circle(new Point(event.point.x, event.point.y), 5);
-            	path.strokeColor = 'gray';
-            	path.strokeWidth = 2;
-            	path.fillColor = 'white';
-            	/*scope.points.push({
-      				x: event.point.x,
-	      			y: event.point.y
-      			});
-      			scope.$apply();*/
-            	selected = path;
+      			paper.project.clear();
+				// If we produced a path before, deselect it:
+				if (path) {
+
+					path.selected = false;
+				}
+
+				// Create a new path and set its stroke color to black:
+				path = new paper.Path({
+					segments: [event.point],
+					strokeColor: 'black',
+					strokeWidth: 2,
+					fullySelected: true
+				});
+            	selected = null;
       		};
 
       		drag = true;
       	};
 
       	mainTool.onMouseMove = function(event) {
-      		if (drag && selected) {
-      			selected.position = event.point;
-      			scope.$apply();
+      		if (drag) {
+      			if (selected) {
+      				selected.position = event.point;
+      				scope.$apply();	
+      			} else {
+      				path.add(event.point);		
+      			}
       		}
       	}
 
       	mainTool.onMouseUp = function(event) {
       		drag = false;
+      		var segmentCount = path.segments.length;
+
+			var points = Array();
+
+			// When the mouse is released, simplify it:
+			path.simplify(10);
+	
+			for(var i=0; i<path._segments.length; i++)
+			{
+				points.push({x : path._segments[i]._point.x, y : path._segments[i]._point.y});	
+			}
+	
+			scope.line = points;
+      		scope.$apply();
       	}
 
 /*
@@ -70,7 +82,45 @@ app.directive('pgEpicness', function () {
         }, true);
 */
 
-        drawPoints();
       }
     }
 });
+
+app.directive('pgDraggable', ['$document' , function($document) {
+    return {
+      restrict: 'A',
+      link: function(scope, elm, attrs) {
+        var startX, startY, initialMouseX, initialMouseY;
+ 		scope.point = scope.$eval(attrs.pgDraggable);
+        elm.bind('mousedown', function($event) {
+          startX = elm.prop('offsetLeft');
+          startY = elm.prop('offsetTop');
+          initialMouseX = $event.clientX;
+          initialMouseY = $event.clientY;
+          $document.bind('mousemove', mousemove);
+          $document.bind('mouseup', mouseup);
+          return false;
+        });
+ 
+        function mousemove($event) {
+          var dx = $event.clientX - initialMouseX;
+          var dy = $event.clientY - initialMouseY;
+          var x = startY + dy;
+          var y = startX + dx;
+          elm.css({
+            top: x + 'px',
+            left: y + 'px'
+          });
+          scope.point.x = x;
+          scope.point.y = y;
+          scope.$apply();
+          return false;
+        }
+ 
+        function mouseup() {
+          $document.unbind('mousemove', mousemove);
+          $document.unbind('mouseup', mouseup);
+        }
+      }
+    };
+}]);
