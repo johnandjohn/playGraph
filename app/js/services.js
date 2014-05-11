@@ -13,7 +13,7 @@ app.service('pathService', function() {
             //compute distances from the constrain path
             console.log('length',line.length);
             
-            var threshold = 40;
+            var threshold = 100;
             angular.forEach(songList, function(song){
                 song.selected = false;
             });
