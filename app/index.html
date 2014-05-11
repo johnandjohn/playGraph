@@ -46,7 +46,7 @@
         </div>
         <div id="column-middle">
         <div class="world" style="width: 100%; height: 500px;">
-            <div data-pg-line="line" class="line" resize></div>
+            <div data-pg-line data-line="line" data-points="points" class="line" resize></div>
 
             <div data-ng-repeat="point in points" data-pg-draggable="point" class="point" style="top: {{point.y}}px; left: {{point.x}}px;" data-ng-class="{selected: point.selected==true}"><div></div></div>
         </div>

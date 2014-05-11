@@ -4,6 +4,10 @@ app.directive('pgLine', function () {
     return {
       restrict: 'A',
       replace: 'false',
+      scope: {
+      	line: '=',
+      	points: '@'
+      },
       template: '<canvas width=100%; height: 100%></canvas>',
       link: function (scope, elems, attrs) {
       	var canvas = elems[0];
@@ -11,7 +15,7 @@ app.directive('pgLine', function () {
       	
       	mainTool.activate();
 
-      	scope.line = scope.$eval(attrs.pgLine);
+      	//scope.line = scope.$eval(attrs.pgLine);
 
       	paper.setup(canvas);
 
@@ -61,15 +65,20 @@ app.directive('pgLine', function () {
       		scope.$apply();
       	}
 
-/*
+
+
+
         scope.$watchCollection('points', function(newVal) {
         	console.log("update");
          	if (newVal) {
+         		
+
+
          		paper.project.clear();
             	drawPoints(scope.points);
           	}
         }, true);
-*/
+
 
       }
     }
