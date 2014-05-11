@@ -30,7 +30,6 @@
 		
 		function changeSong()
 		{
-			alert("Done");
 			clearInterval(musicTimer);
 		}
 		
