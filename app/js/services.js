@@ -44,7 +44,8 @@ app.service('pathService', function() {
                 duration -= 10;
                 removed[0].selected = true;
             }
-            selection.sort(function(item){ return item.closestIndex;});
+            
+            selection.sort(function(a,b){ return a.closestIndex-b.closestIndex;});
 
             //clean points
             angular.forEach(songList, function(song) {
@@ -53,6 +54,7 @@ app.service('pathService', function() {
                 delete song.closestIndex;
                 delete song.rand;
             });
+
             return selection;
         }
     };
