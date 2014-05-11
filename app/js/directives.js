@@ -6,7 +6,7 @@ app.directive('pgLine', function () {
       replace: 'false',
       scope: {
       	line: '=',
-      	points: '@'
+      	list: '='
       },
       template: '<canvas width=100%; height: 100%></canvas>',
       link: function (scope, elems, attrs) {
@@ -68,19 +68,19 @@ app.directive('pgLine', function () {
 
 
 
-        scope.$watchCollection('points', function(newVal) {
+        scope.$watch('list', function(newPoints) {
         	console.log("update");
-         	if (newVal) {
-         		
-
-
-         		paper.project.clear();
-            	drawPoints(scope.points);
+         	if (newPoints) {
+         		for (var i = 0; i < newPoints.length - 1; ++i) {
+         			if (newPoints[i].selected) {
+						var line = paper.Path.Line(newPoints[i], newPoints[i+1]);
+         				line.strokeColor = 'red';
+						line.strokeWidth = 2;
+         			}
+         		}
           	}
         }, true);
-
-
-      }
+	  }
     }
 });
 
