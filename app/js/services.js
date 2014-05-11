@@ -42,7 +42,7 @@ app.service('pathService', function() {
                 selection.push(removed[0]);
                 duration -= 10;
             }
-            selection.sort(function(item){ return item.closestIndex;});
+            selection.sort(function(a,b){ return a.closestIndex-b.closestIndex;});
             return selection;
         }
     };
