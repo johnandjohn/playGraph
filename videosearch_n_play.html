@@ -31,9 +31,18 @@
         }
 
 
-		function newMusic(id)
+		var songFinished;
+		function newMusic(id, duration)
 		{
 			$('#ytplayer').attr('src', 'https://www.youtube.com/embed/'+id+'?autoplay=1&modestbranding=1');
+		 	songFinished = setTimer(nextSong, duration * 1000);
+			console.log("Setting timer for "+duration+" seconds");
+		}
+		
+		function nextSong()
+		{
+			clearTimer(songFinished);
+			console.log("Bingo !");
 		}
 
         function getAllMatchingIds(data)
@@ -60,6 +69,8 @@
             html.push('</ul>');
             document.getElementById('videoResultsDiv').innerHTML = html.join('');
         }
+		
+		
 
     </script>
 

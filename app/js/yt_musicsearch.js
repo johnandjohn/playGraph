@@ -18,12 +18,22 @@ function searchClicked()
             document.documentElement.firstChild.appendChild(script);
         }
 
-
-		function newMusic(id)
+		
+		var musicTimer;
+		
+		function startSongWithDuration(id, duration)
 		{
 			$('#ytplayer').attr('src', 'https://www.youtube.com/embed/'+id+'?autoplay=1&modestbranding=1');
+			console.log("Starting music "+id+", timer="+duration);
+			musicTimer = setInterval(changeSong, duration * 1000);
 		}
-
+		
+		function changeSong()
+		{
+			alert("Done");
+			clearInterval(musicTimer);
+		}
+		
         function getAllMatchingIds(data)
         {
             var feed = data.feed;
@@ -44,7 +54,7 @@ function searchClicked()
             for (var i = 0; i < results.length; i++)
             {
                 //html.push('<li>', '<img src="http://img.youtube.com/vi/', results[i].id, '/2.jpg" /><a href="#" onclick="newMusic(\'', results[i].id ,'\')">', results[i].title, '</a>(', results[i].duration, ')', '</li>');
-                html.push('<li>', '<a href="#" onclick="newMusic(\'', results[i].id ,'\')">', results[i].title, '</a>', '</li>');
+                html.push('<li>', '<a href="#" onclick="startSongWithDuration(\'', results[i].id ,'\', '+results[i].duration +')">', results[i].title, '</a>', '</li>');
             }
             html.push('</ul>');
             document.getElementById('videoResultsDiv').innerHTML = html.join('');
