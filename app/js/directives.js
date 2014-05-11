@@ -35,9 +35,10 @@ app.directive('pgLine', function () {
 				// Create a new path and set its stroke color to black:
 				path = new paper.Path({
 					segments: [event.point],
-					strokeColor: 'black',
-					strokeWidth: 2,
-					fullySelected: true
+					strokeColor: 'rgba(7,140,255,.5)',
+					strokeWidth: 100,
+					fullySelected: true,
+                                        strokeCap: 'round'
 				});
             	selected = null;
       		};
@@ -64,7 +65,7 @@ app.directive('pgLine', function () {
 			var points = Array();
 
 			// When the mouse is released, simplify it:
-			path.smooth();
+			path.simplify(1);
 	
 			for(var i=0; i<path._segments.length; i++)
 			{
