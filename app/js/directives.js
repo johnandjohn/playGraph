@@ -69,15 +69,15 @@ app.directive('pgLine', function () {
       	var lines = [];
         scope.$watch('list', function(newPoints) {
         	console.log("update");
-angular.forEach(lines, function(line) {
-         			line.remove();
-         		});
+			angular.forEach(lines, function(line) {
+         		line.remove();
+         	});
          	if (newPoints) {
          		
          		for (var i = 0; i < newPoints.length - 1; ++i) {
          			if (newPoints[i].selected) {
-						var line = new paper.Path.Line(newPoints[i], newPoints[i+1]);
-         				line.strokeColor = 'red';
+						var line = paper.Path.Line(newPoints[i], newPoints[i+1]);
+         				line.strokeColor = 'rgba(7,140,255,.6)';
 						line.strokeWidth = 2;
 						lines.push(line)
          			}

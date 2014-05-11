@@ -135,10 +135,24 @@ var dummyPoints= [
 		},
 		{
 			x: 800,
-			y: 750,
+			y: 200,
                         label:"piste f"
 		},
-
+		{
+			x: 950,
+			y: 300,
+                        label:"piste f"
+		},
+		{
+			x: 740,
+			y: 120,
+                        label:"piste f"
+		},
+		{
+			x: 900,
+			y: 320,
+                        label:"piste f"
+		}
 	]
 
 var Song = function(point){
