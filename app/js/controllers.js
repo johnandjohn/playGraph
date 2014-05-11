@@ -1,66 +1,44 @@
 'use strict';
 
 /* Controllers */
-var p = new Point(1,2);
+var p = new Point(1, 2);
 
 
 
-app.controller('pointCtrl', function($scope, $http, pathService){
+app.controller('pointCtrl', function($scope, $http, pathService, musicPlayer) {
 
-	$scope.points=dummyPoints;
-	$scope.line = [];
+    $scope.points = dummyPoints;
+    $scope.line = [];
 
-	var update = function(newPoints, newLine) {
-		if(newLine.length > 0) {
-			$scope.playseq=pathService.computePlaylist(newPoints, newLine, 60);
-			startSongWithDuration($scope.playseq[0].id, $scope.playseq[0].duration);
-		}
-	}
+    var update = function(newPoints, newLine) {
+        if (newLine.length > 0) {
+            $scope.playseq = pathService.computePlaylist(newPoints, newLine, 60);
+            musicPlayer.startSongWithDuration($scope.playseq[0].id, $scope.playseq[0].duration);
+        }
+    };
 
-	$scope.$watch('points', function(newVal, oldVal) {
-		console.log("r")
-		update(newVal, $scope.line);
+    $scope.$watch('points', function(newVal) {
+        update(newVal, $scope.line);
     }, true);
 
     $scope.$watch('line', function(newVal) {
-		update($scope.points, newVal);
+        update($scope.points, newVal);
     }, true);
-	
+
 
 //	$scope.line=constList;
-	
-	$scope.addNewSongToGraph = function(id, titre, link, duration)
-	{
-		var newSong = {
-                    x:100,
-                    y:100,
-                    label:titre,
-                    id:id,
-                    link:link,
-                    duration:duration
-                };
+
+    $scope.addNewSongToGraph = function(newSong)
+    {
+        newSong.x = 100;
+        newSong.y = 100;
         $scope.points.push(newSong);
-        console.log(newSong);
-        $scope.$apply();
-	};
-	
+    };
+});
 
-	$scope.getColor = function(point) {
-		if (playlist.indexOf(point) == -1) {
-			return "white"
-		} else {
-			return "red"
-		}
-	}
+app.controller('searchCtrl', function($scope) {
 
-	$scope.foo = function (event) {
-		console.log("foobar");
-
-		$scope.points.push({
-			x: 250,
-			y: 250
-		});
-	};
-
+    $scope.points = dummyPoints;
+    $scope.line = [];
 
 });
