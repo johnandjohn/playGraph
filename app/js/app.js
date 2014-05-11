@@ -97,7 +97,47 @@ var dummyPoints= [
 			x: 420,
 			y: 490,
                         label:"piste f"
-		}
+		},
+		{
+			x: 700,
+			y: 750,
+                        label:"just beat it"
+		},
+		{
+			x: 650,
+			y: 730,
+                        label:"piste f"
+		},
+		{
+			x: 900,
+			y: 850,
+                        label:"piste f"
+		},
+		{
+			x: 800,
+			y: 600,
+                        label:"piste f"
+		},
+		{
+			x: 850,
+			y: 610,
+                        label:"piste f"
+		},
+		{
+			x: 640,
+			y: 880,
+                        label:"piste f"
+		},
+		{
+			x: 900,
+			y: 350,
+                        label:"piste f"
+		},
+		{
+			x: 800,
+			y: 750,
+                        label:"piste f"
+		},
 
 	]
 

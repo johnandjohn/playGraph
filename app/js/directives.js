@@ -53,7 +53,9 @@ app.directive('pgLine', function () {
 			var points = Array();
 
 			// When the mouse is released, simplify it:
-			path.simplify(10);
+			path.simplify(1);
+			path.smooth(1);
+
 	
 			for(var i=0; i<path._segments.length; i++)
 			{
@@ -64,14 +66,20 @@ app.directive('pgLine', function () {
       		scope.$apply();
       	}
 
+      	var lines = [];
         scope.$watch('list', function(newPoints) {
         	console.log("update");
+angular.forEach(lines, function(line) {
+         			line.remove();
+         		});
          	if (newPoints) {
+         		
          		for (var i = 0; i < newPoints.length - 1; ++i) {
          			if (newPoints[i].selected) {
-						var line = paper.Path.Line(newPoints[i], newPoints[i+1]);
+						var line = new paper.Path.Line(newPoints[i], newPoints[i+1]);
          				line.strokeColor = 'red';
 						line.strokeWidth = 2;
+						lines.push(line)
          			}
          		}
           	}
