@@ -12,7 +12,7 @@ app.controller('pointCtrl', function($scope, $http, pathService){
 
 	var update = function(newPoints, newLine) {
 		if(newLine.length > 0) {
-			$scope.playlist=pathService.computePlaylist(newPoints, newLine, 60);
+			$scope.playseq=pathService.computePlaylist(newPoints, newLine, 60);
 		}
 	}
 
