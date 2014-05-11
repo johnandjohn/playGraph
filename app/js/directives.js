@@ -70,7 +70,7 @@ app.directive('pgLine', function () {
          		for (var i = 0; i < newPoints.length - 1; ++i) {
          			if (newPoints[i].selected) {
 						var line = paper.Path.Line(newPoints[i], newPoints[i+1]);
-         				line.strokeColor = 'red';
+         				line.strokeColor = 'rgba(7,140,255,.6)';
 						line.strokeWidth = 2;
          			}
          		}
