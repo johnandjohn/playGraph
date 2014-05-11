@@ -11,17 +11,17 @@ var dummyPoints= [
 		{
 			x: 10,
 			y: 20,
-                        label:"offspring"
+                        label:"chillout 01"
 		},
 		{
 			x: 30,
 			y: 30,
-                        label:"gunther"
+                        label:"chillout 02"
 		},
 		{
 			x: 50,
 			y: 25,
-                        label:"bloodhoung gang"
+                        label:"chillout 03"
 		},
 		{
 			x: 60,
@@ -31,7 +31,7 @@ var dummyPoints= [
 		{
 			x: 90,
 			y: 230,
-                        label:"savant"
+                        label:"foo"
 		},
 		{
 			x: 400,
@@ -41,62 +41,62 @@ var dummyPoints= [
 		{
 			x: 100,
 			y: 220,
-                        label:"piste x"
+                        label:"track x"
 		},
 		{
 			x: 200,
 			y: 20,
-                        label:"piste y"
+                        label:"track y"
 		},
 		{
 			x: 150,
 			y: 450,
-                        label:"piste z"
+                        label:"track z"
 		},
 		{
 			x: 70,
 			y: 80,
-                        label:"piste a"
+                        label:"track a"
 		},
 		{
 			x: 400,
 			y: 80,
-                        label:"piste b"
+                        label:"track b"
 		},
 		{
 			x: 430,
 			y: 90,
-                        label:"piste c"
+                        label:"track c"
 		},
 		{
 			x: 420,
 			y: 65,
-                        label:"piste d"
+                        label:"track d"
 		},
 		{
 			x: 380,
 			y: 320,
-                        label:"piste e"
+                        label:"track e"
 		},
 		{
 			x: 490,
 			y: 340,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 400,
 			y: 400,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 480,
 			y: 360,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 420,
 			y: 490,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 700,
@@ -106,52 +106,52 @@ var dummyPoints= [
 		{
 			x: 650,
 			y: 730,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 900,
 			y: 850,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 800,
 			y: 600,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 850,
 			y: 610,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 640,
 			y: 880,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 900,
 			y: 350,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 800,
 			y: 200,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 950,
 			y: 300,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 740,
 			y: 120,
-                        label:"piste f"
+                        label:"track 01"
 		},
 		{
 			x: 900,
 			y: 320,
-                        label:"piste f"
+                        label:"track 01"
 		}
 	]
 
