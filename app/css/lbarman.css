@@ -25,14 +25,10 @@ body
 }
 
 .world {
-	border: solid #999999 1px;
+	position: relative;
+	overflow: hidden;
 	width: 100%;
 	height: 1000px;
-	overflow: hidden;
-}
-
-.world .line {
-	position: absolute;
 }
 
 .world .line {

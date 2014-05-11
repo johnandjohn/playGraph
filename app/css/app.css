@@ -1,17 +1,1 @@
 /* app css stylesheet */
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
-.world {
-	border: solid #999999 1px;
-	width: 100%;
-	height: 1000px;
-	overflow: hidden;
-}
-
-.world .line {
-	position: absolute;
-}
