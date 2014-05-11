@@ -34,7 +34,7 @@ app.service('pathService', function() {
             var selection = [];
             var tuning = .5;
             angular.forEach(songListCopy, function(song){
-                song.rand = /*(tuning + tuning*Math.random())*/song.minDist;
+                song.rand = (tuning + tuning*Math.random())*song.minDist;
             });
             songListCopy.sort(function(a,b){return a.rand-b.rand;});
             //take from the sorted list util we reach the desired duration
