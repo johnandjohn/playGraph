@@ -32,9 +32,8 @@ app.directive('pgLine', function () {
 			// Create a new path and set its stroke color to black:
 			path = new paper.Path({
 				segments: [event.point],
-				strokeColor: 'rgba(7,140,255,.5)',
+				strokeColor: 'rgba(7,140,255,.3)',
 				strokeWidth: 100,
-				fullySelected: true,
                 strokeCap: 'round'
 			});
       		
@@ -64,9 +63,6 @@ app.directive('pgLine', function () {
 			scope.line = points;
       		scope.$apply();
       	}
-
-
-
 
         scope.$watch('list', function(newPoints) {
         	console.log("update");
