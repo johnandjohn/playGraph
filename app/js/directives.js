@@ -4,6 +4,10 @@ app.directive('pgLine', function () {
     return {
       restrict: 'A',
       replace: 'false',
+      scope: {
+      	line: '=',
+      	list: '='
+      },
       template: '<canvas width=100%; height: 100%></canvas>',
       link: function (scope, elems, attrs) {
       	var canvas = elems[0];
@@ -11,50 +15,35 @@ app.directive('pgLine', function () {
       	
       	mainTool.activate();
 
-      	scope.line = scope.$eval(attrs.pgLine);
+      	//scope.line = scope.$eval(attrs.pgLine);
 
       	paper.setup(canvas);
 
       	var path;
-      	var selected = null;
       	var drag = false;
 
 
       	mainTool.onMouseDown = function(event) {
-      		var hit = paper.project.hitTest(event.point)
-      		if (hit) {
-      			selected = hit.item;
-      		} else {
-      			paper.project.clear();
-				// If we produced a path before, deselect it:
-				if (path) {
-
-					path.selected = false;
-				}
-
-				// Create a new path and set its stroke color to black:
-				path = new paper.Path({
-					segments: [event.point],
-					strokeColor: 'rgba(7,140,255,.5)',
-					strokeWidth: 100,
-					fullySelected: true,
-                                        strokeCap: 'round'
-				});
-            	selected = null;
-      		};
-
+      		paper.project.clear();
+			// If we produced a path before, deselect it:
+			if (path) {
+				path.selected = false;
+			}
+			// Create a new path and set its stroke color to black:
+			path = new paper.Path({
+				segments: [event.point],
+				strokeColor: 'rgba(7,140,255,.5)',
+				strokeWidth: 100,
+				fullySelected: true,
+                strokeCap: 'round'
+			});
+      		
       		drag = true;
       	};
 
       	mainTool.onMouseMove = function(event) {
-      		console.log(event.point);
       		if (drag) {
-      			if (selected) {
-      				selected.position = event.point;
-      				scope.$apply();	
-      			} else {
-      				path.add(event.point);		
-      			}
+      			path.add(event.point);
       		}
       	}
 
@@ -76,17 +65,22 @@ app.directive('pgLine', function () {
       		scope.$apply();
       	}
 
-/*
-        scope.$watchCollection('points', function(newVal) {
+
+
+
+        scope.$watch('list', function(newPoints) {
         	console.log("update");
-         	if (newVal) {
-         		paper.project.clear();
-            	drawPoints(scope.points);
+         	if (newPoints) {
+         		for (var i = 0; i < newPoints.length - 1; ++i) {
+         			if (newPoints[i].selected) {
+						var line = paper.Path.Line(newPoints[i], newPoints[i+1]);
+         				line.strokeColor = 'red';
+						line.strokeWidth = 2;
+         			}
+         		}
           	}
         }, true);
-*/
-
-      }
+	  }
     }
 });
 
