@@ -46,6 +46,7 @@ app.directive('pgLine', function () {
       	};
 
       	mainTool.onMouseMove = function(event) {
+      		console.log(event.point);
       		if (drag) {
       			if (selected) {
       				selected.position = event.point;
