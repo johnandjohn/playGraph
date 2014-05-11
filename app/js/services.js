@@ -31,11 +31,14 @@ app.service('pathService', function() {
             //select the songs
             var selection = [];
             var tuning = .5;
-            songListCopy.sort(function(song){
-                return (tuning + tuning*Math.random())*song.minDist;}
-            );
+            angular.forEach(songListCopy, function(song){
+                song.rand = (tuning + tuning*Math.random())*song.minDist;
+            });
+            songListCopy.sort(function(a,b){return a.rand-b.rand;});
+            //take from the sorted list util we reach the desired duration
             while(duration > 0 && songListCopy.length > 0){
                 var removed = songListCopy.splice(0, 1);
+                console.log(removed[0].minDist);
                 selection.push(removed[0]);
                 duration -= 10;
             }
