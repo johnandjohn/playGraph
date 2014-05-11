@@ -53,7 +53,7 @@ app.directive('pgLine', function () {
 			var points = Array();
 
 			// When the mouse is released, simplify it:
-			path.simplify(1);
+			path.simplify(10);
 	
 			for(var i=0; i<path._segments.length; i++)
 			{
