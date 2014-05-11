@@ -49,8 +49,6 @@
             <div data-pg-line="line" class="line" resize></div>
 
             <div data-ng-repeat="point in points" data-pg-draggable="point" class="point" style="top: {{point.y}}px; left: {{point.x}}px;" data-ng-class="{selected: point.selected==true}"><div></div></div>
-
-            <div data-ng-repeat="point in points | filter:{selected:true} | sliding2">{{point._1}}, {{point._2}}</div>
         </div>
 
         <ul>

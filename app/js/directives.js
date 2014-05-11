@@ -109,11 +109,11 @@ app.directive('pgDraggable', ['$document' , function($document) {
         function mousemove($event) {
           var dx = $event.clientX - initialMouseX;
           var dy = $event.clientY - initialMouseY;
-          var x = startY + dy;
-          var y = startX + dx;
+          var y = startY + dy;
+          var x = startX + dx;
           elm.css({
-            top: x + 'px',
-            left: y + 'px'
+            top: y + 'px',
+            left: x + 'px'
           });
           scope.point.x = x;
           scope.point.y = y;
