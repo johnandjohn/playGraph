@@ -1,4 +1,4 @@
-function searchClicked()
+		function searchClicked()
         {
             document.getElementById("videoResultsDiv").innerHTML = 
                                     'Loading YouTube videos ...';
@@ -34,6 +34,11 @@ function searchClicked()
 			clearInterval(musicTimer);
 		}
 		
+		function callAngular(id, titre, link, duration)
+		{
+			angular.element(document.getElementById('body_spe')).scope().addNewSongToGraph(id, titre, link, duration);
+		}
+		
         function getAllMatchingIds(data)
         {
             var feed = data.feed;
@@ -46,15 +51,13 @@ function searchClicked()
 				var id = entries[i].id.$t.substring(entries[i].id.$t.lastIndexOf("/")+1);
                 results.push({'id' : id, 'title' : entries[i].title.$t, 'link' : entries[i].link[0].href, 'duration' : entries[i].media$group.yt$duration.seconds});
             }
-			console.log(entries);
-			console.log(results);
             var html = ['<ul>'];
 			
 			
             for (var i = 0; i < results.length; i++)
             {
                 //html.push('<li>', '<img src="http://img.youtube.com/vi/', results[i].id, '/2.jpg" /><a href="#" onclick="newMusic(\'', results[i].id ,'\')">', results[i].title, '</a>(', results[i].duration, ')', '</li>');
-                html.push('<li>', '<a href="#" onclick="startSongWithDuration(\'', results[i].id ,'\', '+results[i].duration +')">', results[i].title, '</a>', '</li>');
+                html.push('<li>', '<a href="#" onclick="callAngular(\'', results[i].id,'\',\'',results[i].title,'\',\'',results[i].link,'\',\'',results[i].duration, '\')">', results[i].title, '</a>', '</li>');
             }
             html.push('</ul>');
             document.getElementById('videoResultsDiv').innerHTML = html.join('');

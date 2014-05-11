@@ -13,6 +13,7 @@ app.controller('pointCtrl', function($scope, $http, pathService){
 	var update = function(newPoints, newLine) {
 		if(newLine.length > 0) {
 			$scope.playseq=pathService.computePlaylist(newPoints, newLine, 60);
+			startSongWithDuration($scope.playseq[0].id, $scope.playseq[0].duration);
 		}
 	}
 
@@ -30,6 +31,7 @@ app.controller('pointCtrl', function($scope, $http, pathService){
 	
 	$scope.addNewSongToGraph = function(id, titre, link, duration)
 	{
+		alert("ninja "+id);	
 		var newSong = {
                     x:100,
                     y:100,
@@ -38,7 +40,8 @@ app.controller('pointCtrl', function($scope, $http, pathService){
                     link:link,
                     duration:duration
                 };
-                $scope.points.push(newSong);
+         $scope.points.push(newSong);
+		 $scope.$apply();
 	};
 	
 
