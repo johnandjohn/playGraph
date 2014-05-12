@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../app/lib/angular.js"></script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <script type="text/javascript">
+            var dist = function(point1, point2) {
+                var dx = point1.x - point2.x;
+                var dy = point1.y - point2.y;
+                return Math.sqrt(dx * dx + dy * dy);
+            };
+            var computePlaylist = function(songList, line, duration) {
+                //compute distances from the constrain path
+
+                var threshold = 60;
+                angular.forEach(songList, function(song) {
+                    song.selected = false;
+                });
+
+                var selection = [];
+                angular.forEach(line, function(point) {
+                    angular.forEach(songList, function(song) {
+                        var d = dist(song, point);
+                        if (d < threshold && song.selected !== true) {
+                            selection.push(song);
+                            song.selected = true;
+                        }
+                    });
+                });
+                console.log(selection.length);
+                return selection;
+            };
+
+            var computePlaylist2 = function(songList, line, duration) {
+                //compute distances from the constrain path
+
+                var threshold = 60;
+                for(var i=songList.length-1; i>0; i--){
+                    songList.selected = false;
+                };
+                var songCopy = songList.slice(0);
+                songCopy.sort(function(a,b){return a.x-b.x;});
+
+                var selection = [];
+                for(var i=line.length-1; i>0; i--) {
+                    var point = line[i];
+                    var min = line[i].x-threshold;
+                    var max = line[i].x+threshold;
+                    var j=songCopy.length-1;
+                    while(songCopy[j].x > max && j > 0){
+                        j--;
+                    }
+                    while(songCopy[j].x > min && j > 0){
+                        var song = songCopy[j];
+                        var d = dist(song, point);
+                        if (d < threshold) {
+                                songCopy.splice(j,1);
+                                selection.push(song);
+                                song.selected = true;
+                        }
+                        j--;
+                    };
+                };
+                console.log(selection.length);
+                return selection;
+            };
+            var computePlaylist3 = function(songList, line, duration) {
+                //compute distances from the constrain path
+
+                var threshold = 60;
+                for(var i=songList.length-1; i>0; i--){
+                    songList.selected = false;
+                };
+                var songCopy = songList.slice(0);
+
+                var selection = [];
+                for(var i=line.length-1; i>0; i--) {
+                    var point = line[i];
+                    for(var j=songCopy.length-1; j>0; j--){
+                        var song = songCopy[j];
+                            var d = dist(song, point);
+                            if (d < threshold) {
+                                songCopy.splice(j,1);
+                                selection.push(song);
+                                song.selected = true;
+                            }
+                    };
+                };
+                console.log(selection.length);
+                return selection;
+            };
+            
+
+            var generateRandCoords = function(amount) {
+                var temp = [];
+                var randomPoint = function() {
+                    return {
+                        x: Math.round(Math.random() * 1000),
+                        y: Math.round(Math.random() * 1000)
+                    };
+                };
+                for (var i = 0; i < amount; i++) {
+                    temp.push(randomPoint());
+                }
+                ;
+                return temp;
+            };
+
+            var line = generateRandCoords(100);
+            var songs = generateRandCoords(100);
+
+            var timestamp = new Date().getTime();
+            computePlaylist(songs, line, 60);
+            console.log('execution time', new Date().getTime() - timestamp);
+
+            var timestamp = new Date().getTime();
+            computePlaylist2(songs, line, 60);
+            console.log('execution time2', new Date().getTime() - timestamp);
+            
+            var timestamp = new Date().getTime();
+            computePlaylist3(songs, line, 60);
+            console.log('execution time3', new Date().getTime() - timestamp);
+        </script>
+    </body>
+</html>
